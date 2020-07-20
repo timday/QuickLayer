@@ -171,3 +171,12 @@ void FboQuickWindow::resize( int w, int h )
 {
     resize( QSize( w, h ) );
 }
+
+QImage FboQuickWindow::snapshot() {
+    QImage r;
+    if( m_fbo && m_context && m_context->makeCurrent( m_offscreenSurface ) ) {
+        r=m_fbo->toImage();
+        m_context->doneCurrent();
+    }
+    return r;
+}

@@ -30,6 +30,8 @@ public:
     void resize( const QSize& newSize );
     void resize( int w, int h );
 
+    QImage snapshot();
+  
 Q_SIGNALS:
     void sceneRendered();
 
